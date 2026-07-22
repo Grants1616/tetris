@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from shape import *
 
 
 def main():
@@ -9,12 +10,13 @@ def main():
     clock = pygame.time.Clock()
     dt = 0.0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    shape = Shape(SCREEN_WIDTH / 2, 0)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
-        pygame.draw.polygon(screen, "white", [(40, 30), (70, 30), (70, 100)], 1)
+        shape.draw(screen)
         pygame.display.flip()
         dt = clock.tick(60) / 1000
 
